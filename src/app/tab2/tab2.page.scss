@@ -1,0 +1,12 @@
+.scroll-container {
+    display: flex;           
+    overflow-x: auto;        
+    padding: 10px 0;         
+    gap: 10px;               
+  }
+  
+  ion-card {
+    width: 100px;           
+    flex-shrink: 0;          
+  }
+  

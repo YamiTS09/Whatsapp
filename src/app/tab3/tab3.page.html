@@ -1,17 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 3
-    </ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true" >
+  <ion-toolbar color="primary">
+  <ion-buttons slot="secondary" >
+    <ion-button>
+      <ion-icon slot="icon-only" name="search" color="light"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="primary">
+    <ion-button id="popover-button3">
+      <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical" color="light"></ion-icon>
+    </ion-button>
+    <ion-popover trigger="popover-button3" [dismissOnSelect]="true">
+      <ng-template>
+        <ion-content>
+          <ion-list>
+            <ion-item [button]="true" [detail]="false">Borrar registro de llamadas</ion-item>
+            <ion-item [button]="true" [detail]="false">Ajustes</ion-item>      
+          </ion-list>
+        </ion-content>
+      </ng-template>
+    </ion-popover>
+  </ion-buttons>
+  <ion-title color="light">Llamadas</ion-title>
+</ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+<ion-content [fullscreen]="true">
+  <app-item-chat 
+    *ngFor="let llamadas of llamadas" 
+    [username]="llamadas.username"
+    [message]="llamadas.message"
+    [avatarUrl]="llamadas.avatarUrl">
+  </app-item-chat>
 </ion-content>
